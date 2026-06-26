@@ -91,7 +91,7 @@ const App: React.FC = () => {
             <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center text-white text-xs font-black shadow-lg shadow-violet-200">
               P
             </div>
-            <span className="text-slate-800 font-bold text-sm tracking-wide">Persona Genie</span>
+            <span className="text-slate-800 font-bold text-sm tracking-wide">PersonaZen</span>
             <span className="text-slate-400 text-xs font-medium ml-0.5">Pro</span>
           </div>
           {step === "analysis" && (
