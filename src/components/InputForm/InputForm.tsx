@@ -375,7 +375,7 @@ const InputForm: React.FC<InputFormProps> = ({
             100,000人シミュレーション
           </div>
           <h1 className="text-4xl md:text-5xl font-black text-slate-900 mb-2 tracking-tight">
-            Persona <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600">Genie</span>
+            Persona<span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600">Zen</span>
           </h1>
           <p className="text-slate-500 text-sm max-w-sm mx-auto">
             15の質問から統計的に精確なペルソナ母集団を構築します
