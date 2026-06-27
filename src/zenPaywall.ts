@@ -14,7 +14,7 @@ const APP_TITLE = 'PersonaZen';
 const PRICE = '¥980';
 const PRO_FEATURES = ['詳細データ・複数プロジェクト', 'クラスタ比較', 'CSV/PDF出力'];
 /** Stripe Payment Link。登録後にここへ URL を貼る（空のうちは購入ボタンが案内のみ） */
-const PAYMENT_LINK = '';
+const PAYMENT_LINK = 'https://buy.stripe.com/fZu8wQ4M64YR4yngEs2ZO00';
 
 interface GateState {
   used: number;
