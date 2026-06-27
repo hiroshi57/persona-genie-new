@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   DEFAULT_PRODUCT_INFO, DEFAULT_SLIDER_PARAMETERS, DEFAULT_SCREENING_FILTERS,
 } from "./types";
@@ -11,6 +11,7 @@ import { validateProductForm, sanitizeText } from "./validation";
 import InputForm from "./components/InputForm/InputForm";
 import AnalysisView from "./components/Analysis/AnalysisView";
 import { useToast, ToastContainer } from "./components/common/Toast";
+import { checkPurchaseReturn, canUse, recordUse, showPaywall } from "./zenPaywall";
 
 const POPULATION_SIZE = 100000;
 
@@ -30,7 +31,18 @@ const App: React.FC = () => {
 
   const { runSimulationAsync, progress, isRunning } = useSimulationWorker();
 
+  // Stripe決済からの戻り（?zen_pro=1&slug=personazen）を検知して Pro を解放
+  useEffect(() => {
+    checkPurchaseReturn();
+  }, []);
+
   const handleSubmit = async () => {
+    // 課金ゲート: 無料上限に達していたらペイウォールを表示して中断
+    if (!canUse()) {
+      showPaywall();
+      return;
+    }
+
     const validationErrors = validateProductForm(productData);
     setErrors(validationErrors);
     if (Object.keys(validationErrors).length > 0) {
@@ -65,6 +77,7 @@ const App: React.FC = () => {
       setScreeningFilters(DEFAULT_SCREENING_FILTERS);
       setPersonas(null);
       setStep("analysis");
+      recordUse(); // 成功した生成を1回分カウント（無料上限の消費）
     } catch (err) {
       addToast({ id: crypto.randomUUID(), message: "シミュレーション実行中にエラーが発生しました。", type: "error" });
       console.error(err);
