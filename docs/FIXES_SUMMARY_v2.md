@@ -175,7 +175,7 @@ persona-genie-new/
 
 1. **古いフォルダを削除**
    ```powershell
-   rmdir /s /q C:\Users\hiroshi_takizawa\persona-genie-new
+   rmdir /s /q C:\Users\YOUR_USER\persona-genie-new
    ```
 
 2. **修正済み zip をダウンロード**
@@ -183,8 +183,8 @@ persona-genie-new/
 
 3. **解凍して実行**
    ```powershell
-   Expand-Archive persona-genie-new.zip -DestinationPath C:\Users\hiroshi_takizawa\
-   cd C:\Users\hiroshi_takizawa\persona-genie-new
+   Expand-Archive persona-genie-new.zip -DestinationPath C:\Users\YOUR_USER\
+   cd C:\Users\YOUR_USER\persona-genie-new
    npm install
    npm run dev
    ```
