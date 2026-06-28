@@ -12,7 +12,9 @@ const SLUG = 'personazen';
 const FREE_LIMIT = 1; // 無料でペルソナ生成できる回数（端末ごと）
 const APP_TITLE = 'PersonaZen';
 const PRICE = '¥980';
-const PRO_FEATURES = ['詳細データ・複数プロジェクト', 'クラスタ比較', 'CSV/PDF出力'];
+const PRO_FEATURES = ['詳細ペルソナ無制限生成', 'クラスタ比較・深掘り分析', 'CSV/PDF出力'];
+/** Proで見られる結果のチラ見せ（ぼかし表示で損失回避を喚起） */
+const TEASER = '【30代後半・都市在住・年収600万】新技術アーリーアダプター。購買動機: 効率化／ステータス。価値観: 合理性重視。よく使うチャネル: …';
 /** Stripe Payment Link。登録後にここへ URL を貼る（空のうちは購入ボタンが案内のみ） */
 const PAYMENT_LINK = 'https://buy.stripe.com/fZu8wQ4M64YR4yngEs2ZO00';
 
